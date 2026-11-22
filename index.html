@@ -6,7 +6,59 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Xiaoyan Gu — master's student at Zhejiang University, studying how humans and AI shape each other through sustained interaction using AI methods, HCI, and visualization.">
   <title>Xiaoyan Gu · AI & Human–AI Collaboration</title>
+  <link rel="preload" href="assets/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/source-sans-3-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+/* Local scholarly typography. Self-hosted fonts, SIL OFL 1.1. */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-serif-4-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-serif-4-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-serif-4-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-serif-4-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-sans-3-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(assets/source-sans-3-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ============================================================
    Xiaoyan Gu — academic personal site
    Academic editorial system: white, charcoal and restrained burgundy
@@ -28,14 +80,14 @@
   --amber:#68616c;
   --amber-bg:#f6f5f7;
   --amber-line:#ddd9e1;
-  --serif:Georgia,'Times New Roman','Songti SC',serif;
-  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',Arial,sans-serif;
+  --serif:'Source Serif 4',Georgia,'Songti SC',serif;
+  --sans:'Source Sans 3',-apple-system,BlinkMacSystemFont,'PingFang SC',Arial,sans-serif;
 }
 
 /* ---------- base ---------- */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:30px;border-top:2px solid var(--accent)}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;font-optical-sizing:auto}
 a{color:var(--accent);text-decoration:none;text-decoration-thickness:1px}
 a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--accent-line)}
 button{font:inherit;cursor:pointer}
@@ -55,7 +107,7 @@ h1,h2,h3{font-weight:500}
 /* ---------- profile / nav ---------- */
 .profile{position:sticky;top:38px;align-self:start;text-align:center}
 .profile-photo{width:150px;height:160px;object-fit:cover;object-position:44% 47%;border-radius:4px;margin:0 auto 17px;border:1px solid var(--line)}
-.profile h1{font:29px/1.2 var(--serif);letter-spacing:-.5px}
+.profile h1{font:700 33px/1.15 var(--serif);letter-spacing:-1px}
 .profile .chinese{font:17px/1.7 var(--serif);margin:6px 0 12px;letter-spacing:.18em;color:var(--body)}
 .profile-role{font-size:14px;line-height:1.75;color:var(--body)}
 .profile-email{font-size:13px;display:inline-block;margin:12px 0 9px}
@@ -69,11 +121,11 @@ main{min-width:0}
 
 /* ---------- section headings ---------- */
 .section-title,.section-head h2,.background h2,.contact h2,.personal-interests h2{
-  font:24px/1.3 var(--serif);letter-spacing:-.3px;color:var(--ink)
+  font:650 27px/1.25 var(--serif);letter-spacing:-.5px;color:var(--ink)
 }
 
 /* ---------- about ---------- */
-.about p{margin-top:12px;color:var(--body);font-size:16px;line-height:1.7}
+.about p{margin-top:12px;color:var(--body);font-size:17px;line-height:1.7}
 .about strong{color:var(--ink);font-weight:600}
 .research-line{font-size:14px!important;line-height:1.7!important;margin-top:14px!important;color:var(--muted)}
 .research-line strong{font-weight:600;color:var(--body)}
@@ -96,7 +148,7 @@ main{min-width:0}
 
 /* ---------- news ---------- */
 .updates{margin:24px 0 27px;padding:15px 0 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.updates h2{font:19px/1.4 var(--serif);margin-bottom:10px}
+.updates h2{font:600 22px/1.4 var(--serif);margin-bottom:10px}
 .news-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
 .news-list li{display:grid;grid-template-columns:68px 1fr;gap:10px;font-size:14px;line-height:1.6;color:var(--body)}
 .news-list time{color:var(--faint);font-size:13px;font-variant-numeric:tabular-nums}
@@ -109,7 +161,7 @@ main{min-width:0}
 .research-module{margin:0 0 32px}
 .research-module:last-of-type{margin-bottom:0}
 .module-heading{display:block;margin:0 0 21px;padding:0;background:none;border:0}
-.module-heading h3{display:flex;align-items:center;gap:16px;margin:0;font:500 20px/1.4 var(--serif);color:var(--ink);letter-spacing:-.2px}
+.module-heading h3{display:flex;align-items:center;gap:16px;margin:0;font:600 22px/1.4 var(--serif);color:var(--ink);letter-spacing:-.2px}
 .direction-title{display:inline-flex;align-items:center;gap:12px;flex-shrink:1}
 .direction-arrow{display:block;width:34px;height:18px;fill:none;stroke:var(--accent);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
 .module-heading h3::after{content:"";display:block;flex:1;height:1px;background:var(--line-strong);min-width:20px}
@@ -139,7 +191,7 @@ main{min-width:0}
 .diagram text{font-family:var(--sans)}
 .concept-label{font-size:11px;letter-spacing:2px;fill:var(--muted)}
 
-.work :is(h3,h4){font:600 15.5px/1.5 var(--sans);color:var(--ink);margin:0 0 6px;letter-spacing:-.1px}
+.work :is(h3,h4){font:600 16.5px/1.45 var(--sans);color:var(--ink);margin:0 0 6px;letter-spacing:-.1px}
 .work :is(h3,h4) a{color:var(--ink)}
 .work :is(h3,h4) a:hover{color:var(--accent-deep)}
 .work :is(h3,h4) .project-name{font-weight:700}
@@ -177,7 +229,7 @@ details[open] summary{margin-bottom:4px}
 .model-symbol{display:grid;place-items:center;height:48px;width:52px;margin-bottom:3px;color:#625d68}
 .model-symbol svg{width:43px;height:43px;overflow:visible}
 .model-ai .model-symbol{color:var(--accent)}
-.model-name{font:20px/1.3 var(--serif);letter-spacing:-.2px;color:var(--ink)}
+.model-name{font:600 21px/1.3 var(--serif);letter-spacing:-.2px;color:var(--ink)}
 .model-qualities{font-size:10.5px;line-height:1.65;color:var(--muted);margin-top:1px}
 .model-exchange{position:relative;height:136px;text-align:center;min-width:0}
 .model-flow{position:absolute;left:0;right:0;font-size:10.5px;line-height:1.5;color:var(--muted)}
@@ -261,7 +313,7 @@ details[open] summary{margin-bottom:4px}
   .layout{display:block;margin:25px auto 10px;padding:0 22px;max-width:600px}
   .profile{position:static;text-align:left;display:grid;grid-template-columns:95px minmax(0,1fr);gap:0 19px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:23px}
   .profile-photo{grid-column:1;grid-row:1/6;width:95px;height:112px;margin:0;border-radius:4px}
-  .profile h1{font-size:25px}
+  .profile h1{font-size:28px}
   .profile .chinese{font-size:15px;margin:3px 0 4px;line-height:1.4}
   .profile-role{font-size:13px;line-height:1.6}
   .profile-email{font-size:12px;margin:5px 0}
@@ -269,8 +321,8 @@ details[open] summary{margin-bottom:4px}
   .nav{grid-column:1/-1;flex-direction:row;gap:9px 18px;border:0;margin:14px 0 0;padding:0;flex-wrap:wrap}
   .nav a{font-size:13px;padding:0}
 
-  .section-title,.section-head h2,.background h2{font-size:22px}
-  .about p{font-size:16px;line-height:1.65;margin-top:10px}
+  .section-title,.section-head h2,.background h2{font-size:26px}
+  .about p{font-size:17px;line-height:1.65;margin-top:10px}
   .opportunities{padding:19px 15px 13px}
   .opportunities h2{left:10px}
   .updates{margin:20px 0 23px;padding:13px 0}
@@ -293,7 +345,7 @@ details[open] summary{margin-bottom:4px}
   .work{grid-template-columns:105px minmax(0,1fr);gap:6px 14px;margin-bottom:21px;padding-bottom:20px}
   .work-copy{display:contents}
   .work-figure{grid-column:1;grid-row:1;margin:0}
-  .work :is(h3,h4){grid-column:2;grid-row:1;margin:0;font-size:14px;line-height:1.5;letter-spacing:0}
+  .work :is(h3,h4){grid-column:2;grid-row:1;margin:0;font-size:15px;line-height:1.45;letter-spacing:0}
   .work .authors,.work .work-tags,.work .work-description,.work .work-links,.work details{grid-column:1/-1;margin:0}
   .work .authors{margin-top:4px;font-size:12px}
   .work .work-description{margin-top:2px;font-size:13px;line-height:1.65}

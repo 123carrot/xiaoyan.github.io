@@ -19,3 +19,7 @@ python3 -m http.server 8766
 Research has Selected work / All work tabs; the full view is grouped by research direction. Images can be enlarged. The site has no framework or build dependency.
 
 Human and bot icons are from [Lucide](https://lucide.dev/), licensed under ISC; see `LUCIDE-LICENSE.txt`.
+
+## Typography
+
+Source Serif 4 (name and headings) and Source Sans 3 (body and publication text) are self-hosted under `assets/`, with variable weights and local font preloads. Both use the SIL Open Font License 1.1; see `assets/sourceserif4-OFL.txt` and `assets/sourcesans3-OFL.txt`.
