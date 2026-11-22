@@ -1,183 +1,670 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaoyan Gu · Homepage</title>
-  <meta name="description" content="Personal academic homepage of Xiaoyan Gu — research on large language models, LLM-based agents, multimodal understanding and frontier AI." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Xiaoyan Gu — master's student at Zhejiang University, studying how humans and AI shape each other through sustained interaction using AI methods, HCI, and visualization.">
+  <title>Xiaoyan Gu · AI & Human–AI Collaboration</title>
+  <style>
+/* ============================================================
+   Xiaoyan Gu — academic personal site
+   Academic editorial system: white, charcoal and restrained burgundy
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --soft:#faf8f9;
+  --ink:#29282c;
+  --body:#4a494f;
+  --muted:#706d75;
+  --faint:#746f79;
+  --line:#e7e5e8;
+  --line-strong:#d8d4da;
+  --accent:#8a3450;
+  --accent-deep:#782b44;
+  --accent-soft:#fbf2f5;
+  --accent-line:#e6ccd5;
+  --amber:#68616c;
+  --amber-bg:#f6f5f7;
+  --amber-line:#ddd9e1;
+  --serif:Georgia,'Times New Roman','Songti SC',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',Arial,sans-serif;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:30px;border-top:2px solid var(--accent)}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;text-decoration-thickness:1px}
+a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--accent-line)}
+button{font:inherit;cursor:pointer}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{font-weight:500}
+::selection{background:#f0dfe6;color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+
+.skip{position:fixed;top:-100px;left:15px;background:#fff;padding:8px 15px;z-index:50;border:1px solid var(--line)}
+.skip:focus{top:10px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ---------- layout ---------- */
+.layout{max-width:1020px;margin:52px auto 30px;padding:0 28px;display:grid;grid-template-columns:190px minmax(0,1fr);gap:62px}
+
+/* ---------- profile / nav ---------- */
+.profile{position:sticky;top:38px;align-self:start;text-align:center}
+.profile-photo{width:150px;height:160px;object-fit:cover;object-position:44% 47%;border-radius:4px;margin:0 auto 17px;border:1px solid var(--line)}
+.profile h1{font:29px/1.2 var(--serif);letter-spacing:-.5px}
+.profile .chinese{font:17px/1.7 var(--serif);margin:6px 0 12px;letter-spacing:.18em;color:var(--body)}
+.profile-role{font-size:14px;line-height:1.75;color:var(--body)}
+.profile-email{font-size:13px;display:inline-block;margin:12px 0 9px}
+.profile-links{display:flex;justify-content:center;gap:19px;font-size:14px}
+.nav{border-top:1px solid var(--line);margin:22px 14px 0;padding-top:17px;display:flex;flex-direction:column;gap:8px}
+.nav a{font-size:14px;color:var(--muted);padding:2px 0}
+.nav a[aria-current]{color:var(--ink);font-weight:600}
+.nav a:hover{color:var(--accent)}
+
+main{min-width:0}
+
+/* ---------- section headings ---------- */
+.section-title,.section-head h2,.background h2,.contact h2,.personal-interests h2{
+  font:24px/1.3 var(--serif);letter-spacing:-.3px;color:var(--ink)
+}
+
+/* ---------- about ---------- */
+.about p{margin-top:12px;color:var(--body);font-size:16px;line-height:1.7}
+.about strong{color:var(--ink);font-weight:600}
+.research-line{font-size:14px!important;line-height:1.7!important;margin-top:14px!important;color:var(--muted)}
+.research-line strong{font-weight:600;color:var(--body)}
+
+/* ---------- opportunities (tag-label callout, no left bar, no gradient) ---------- */
+.opportunities{position:relative;margin:30px 0 0;padding:21px 19px 15px;border:1px solid var(--line-strong);border-radius:3px;background:var(--soft)}
+.opportunities h2{
+  position:absolute;top:0;left:14px;transform:translateY(-50%);
+  margin:0;padding:2px 9px;
+  background:var(--soft);
+  border:1px solid var(--line-strong);border-radius:2px;
+  font:600 11px/1.6 var(--sans);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent-deep)
+}
+.opportunities p{font-size:14px;line-height:1.75;color:var(--body)}
+.opportunities strong{font-weight:600;color:var(--ink)}
+.opportunities a{color:var(--accent-deep);text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:3px}
+.opportunities a:hover{color:var(--accent);text-decoration-color:currentColor}
+.opportunities + .updates{margin-top:22px;border-top:0}
+
+/* ---------- news ---------- */
+.updates{margin:24px 0 27px;padding:15px 0 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.updates h2{font:19px/1.4 var(--serif);margin-bottom:10px}
+.news-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.news-list li{display:grid;grid-template-columns:68px 1fr;gap:10px;font-size:14px;line-height:1.6;color:var(--body)}
+.news-list time{color:var(--faint);font-size:13px;font-variant-numeric:tabular-nums}
+.news-list em{font-style:normal;color:var(--ink)}
+.news-item{display:grid;grid-template-columns:17px minmax(0,1fr);gap:8px;align-items:start}
+.news-emoji{font-size:15px;line-height:1.6}
+
+/* ---------- research modules (direction dividers) ---------- */
+.research > .section-head{margin-bottom:25px}
+.research-module{margin:0 0 32px}
+.research-module:last-of-type{margin-bottom:0}
+.module-heading{display:block;margin:0 0 21px;padding:0;background:none;border:0}
+.module-heading h3{display:flex;align-items:center;gap:16px;margin:0;font:500 20px/1.4 var(--serif);color:var(--ink);letter-spacing:-.2px}
+.direction-title{display:inline-flex;align-items:center;gap:12px;flex-shrink:1}
+.direction-arrow{display:block;width:34px;height:18px;fill:none;stroke:var(--accent);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.module-heading h3::after{content:"";display:block;flex:1;height:1px;background:var(--line-strong);min-width:20px}
+.module-heading p{font:400 14px/1.7 var(--sans);color:var(--muted);margin:9px 0 0;max-width:650px;text-wrap:pretty}
+.research-module + .research-module{padding-top:6px}
+
+/* ---------- work entries ---------- */
+.section-head{margin-bottom:20px}
+.work{display:grid;grid-template-columns:168px minmax(0,1fr);gap:22px;align-items:start;margin:0 0 27px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.work:last-of-type{padding-bottom:17px;margin-bottom:9px}
+.research-module .work{border-bottom:0;margin-bottom:22px;padding-bottom:0}
+.research-module .work:last-of-type{margin-bottom:0;padding-bottom:0}
+
+.work-figure{margin-top:0;min-width:0}
+.work-figure button{
+  border:1px solid var(--line);padding:5px;background:#fff;width:100%;
+  border-radius:4px;transition:border-color .2s,box-shadow .2s
+}
+.work-figure button:hover{border-color:var(--accent-line);box-shadow:0 2px 10px rgba(62,34,48,.07)}
+.work-figure img{width:100%;height:auto;max-height:160px;object-fit:contain}
+.work-figure figcaption{font-size:11px;color:var(--faint);line-height:1.5;margin-top:6px}
+.zoom-hint{display:none}
+.figure-pending{border:1px dashed var(--line-strong);border-radius:4px;min-height:103px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12px 8px;background:#faf9fb;color:var(--faint);font-size:11px;line-height:1.7}
+.figure-pending strong{font-size:13px;color:var(--muted);font-weight:500}
+.figure-pending span{font-size:10px;margin-top:4px}
+.diagram{width:100%;height:auto;aspect-ratio:1.35;border:1px solid var(--line);border-radius:4px;background:var(--soft)}
+.diagram text{font-family:var(--sans)}
+.concept-label{font-size:11px;letter-spacing:2px;fill:var(--muted)}
+
+.work :is(h3,h4){font:600 15.5px/1.5 var(--sans);color:var(--ink);margin:0 0 6px;letter-spacing:-.1px}
+.work :is(h3,h4) a{color:var(--ink)}
+.work :is(h3,h4) a:hover{color:var(--accent-deep)}
+.work :is(h3,h4) .project-name{font-weight:700}
+.authors{font-size:13px;line-height:1.65;color:var(--muted);margin-bottom:5px}
+.authors a{color:var(--body)}
+.authors a:hover{color:var(--accent-deep)}
+.authors strong{color:var(--ink);font-weight:600}
+.advisor-mark{font-size:10px;color:var(--accent);margin-left:1px;line-height:0}
+
+.work-tags{display:flex;align-items:baseline;gap:5px 9px;flex-wrap:wrap;font-size:13px;margin:5px 0 6px;line-height:1.5}
+.venue{color:var(--accent-deep);font-weight:500}
+.contribution{color:var(--faint);font-size:12px}
+
+.status{display:inline-block;font-size:10.5px;font-weight:600;line-height:1.55;letter-spacing:.02em;border:1px solid var(--line-strong);border-radius:3px;padding:1px 6px;color:var(--muted);background:#f5f4f6;white-space:nowrap}
+.status-accepted{color:var(--accent-deep);background:var(--accent-soft);border-color:var(--accent-line)}
+.status-under-review{color:var(--amber);background:var(--amber-bg);border-color:var(--amber-line)}
+.status-preprint,.status-in-preparation{color:var(--muted);background:#f5f4f6;border-color:var(--line-strong)}
+
+.work-description{font-size:14px;line-height:1.7;color:var(--body);margin-top:7px}
+.work-links{display:flex;flex-wrap:wrap;gap:4px 15px;font-size:13px;margin-top:8px}
+.work-links a{border-bottom:1px solid var(--line-strong);line-height:1.6;color:var(--accent-deep)}
+.work-links a:hover{text-decoration:none;border-color:var(--accent)}
+details{font-size:13px;line-height:1.65;color:var(--muted);margin-top:8px}
+summary{cursor:pointer;font-size:12px;width:fit-content}
+details[open] summary{margin-bottom:4px}
+.publication-note{font-size:12px;color:var(--faint);margin:10px 0 27px}
+.scholar-link{font-size:12px}
+
+/* ---------- research perspective and publication tabs ---------- */
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+[hidden]{display:none!important}
+.research-model{margin:-5px 0 24px;padding:7px 0 17px;border-bottom:1px solid var(--line)}
+.model-cycle{display:grid;grid-template-columns:120px minmax(0,1fr) 120px;gap:16px;align-items:center;max-width:620px;margin:0 auto}
+.model-entity{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;color:var(--ink)}
+.model-symbol{display:grid;place-items:center;height:48px;width:52px;margin-bottom:3px;color:#625d68}
+.model-symbol svg{width:43px;height:43px;overflow:visible}
+.model-ai .model-symbol{color:var(--accent)}
+.model-name{font:20px/1.3 var(--serif);letter-spacing:-.2px;color:var(--ink)}
+.model-qualities{font-size:10.5px;line-height:1.65;color:var(--muted);margin-top:1px}
+.model-exchange{position:relative;height:136px;text-align:center;min-width:0}
+.model-flow{position:absolute;left:0;right:0;font-size:10.5px;line-height:1.5;color:var(--muted)}
+.model-flow-forward{top:0;color:var(--accent-deep)}.model-flow-return{bottom:0}
+.model-arrows{position:absolute;top:14px;left:0;width:100%;height:102px;fill:none;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round}
+.model-forward{stroke:var(--accent)}.model-return{stroke:#9e98a3}
+.model-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font:italic 15px/1.4 var(--serif);color:var(--body);white-space:nowrap;background:var(--paper);padding:0 6px}
+.model-center span{font:10.5px/1.4 var(--sans);color:var(--muted)}
+.research-model figcaption{text-align:center;margin-top:14px;font-size:11px;line-height:1.6;color:var(--muted);letter-spacing:.01em}
+.publication-toolbar{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:24px}
+.publication-toolbar .scholar-link{margin-left:auto;white-space:nowrap;font-size:12px;padding-bottom:11px}
+.research-tabs{display:flex;gap:28px;flex-shrink:0}
+.research-tabs button{position:relative;display:flex;align-items:center;gap:8px;margin:0 0 -1px;padding:0 0 11px;border:0;border-bottom:2px solid transparent;background:none;color:var(--muted);font:500 15px/1.5 var(--sans);transition:color .18s,border-color .18s}
+.research-tabs button:hover{color:var(--ink)}
+.research-tabs button[aria-selected="true"]{color:var(--accent-deep);border-bottom-color:var(--accent);font-weight:600}
+.research-tabs button span{font-size:11px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.research-panel{margin:0 0 30px}.research-panel:focus{outline-offset:8px}
+.selected-work .work{margin-bottom:24px;padding-bottom:24px}.selected-work .work:last-of-type{padding-bottom:0;border:0}
+.research-tag{font-size:10.5px;font-weight:500;line-height:1.6;white-space:nowrap;color:var(--accent-deep);background:var(--accent-soft);border-radius:3px;padding:1px 7px}
+.research-panel .publication-note{margin:19px 0 0}
+@media(max-width:700px){
+ .model-cycle{grid-template-columns:67px minmax(0,1fr) 67px;gap:7px}
+ .model-name{font-size:18px}.model-symbol{height:39px;width:43px}.model-symbol svg{width:35px;height:35px}.model-qualities{font-size:9.5px}
+ .model-exchange{height:142px}.model-arrows{top:22px;height:100px}.model-flow{font-size:10px;max-width:170px;margin:auto;line-height:1.5}
+ .model-center{font-size:14px;padding:0 3px}.model-center span{font-size:10px}
+ .research-model{padding-top:0;margin-bottom:21px}.research-model figcaption{font-size:11px;margin-top:11px}
+ .publication-toolbar{margin-bottom:21px;gap:6px 12px}.research-tabs{gap:20px}.research-tabs button{font-size:14px}.publication-toolbar .scholar-link{font-size:11px}.research-tag{font-size:10px}
+}
+@media print{.research-model,.publication-toolbar{display:none}.research-panel[hidden]{display:block!important}.selected-work{display:none!important}}
+
+/* ---------- background / education ---------- */
+.background{padding:0}
+.background :is(h2,h3,p,a),.background .entry p:last-child{color:var(--ink)}
+.background a:hover{text-decoration-color:currentColor}
+.background h2{margin:0 0 15px}
+.background-grid{display:flex;flex-direction:column;gap:5px}
+.entry{position:relative;margin:0 0 20px;padding-right:0}
+.entry h3{font-size:16px;line-height:1.5;font-weight:600;max-width:65%;font-family:var(--sans)}
+.entry-date{float:right;font-size:12px;color:var(--faint);line-height:2;text-align:right;margin-left:12px;font-variant-numeric:tabular-nums}
+.entry-role{font-size:14px;color:var(--accent-deep);margin-top:2px}
+.entry p:last-child{font-size:14px;line-height:1.6;color:var(--body);margin-top:4px}
+
+/* ---------- personal interests ---------- */
+.personal-interests{margin:3px 0 24px;padding-top:5px}
+.personal-interests p{font-size:14px;line-height:1.7;color:var(--body);margin-top:10px}
+
+/* ---------- contact / footer ---------- */
+.contact{border-top:1px solid var(--line);padding:20px 0 16px;margin-top:8px}
+.contact h2{font-size:22px;margin-bottom:7px}
+.contact p{font-size:14px;line-height:1.6;color:var(--body)}
+.contact-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:9px}
+.email-link{font-size:14px}
+.copy{font-size:12px;color:var(--muted);border:0;background:none;padding:0;text-decoration:underline;text-underline-offset:3px}
+.copy:hover{color:var(--accent-deep)}
+.footer{display:flex;justify-content:space-between;gap:20px;font-size:11px;color:var(--faint);padding:15px 0;border-top:1px solid var(--line)}
+.footer a{color:var(--faint)}
+
+/* ---------- lightbox / toast ---------- */
+.lightbox{border:1px solid var(--line);padding:24px;border-radius:5px;max-width:min(1100px,94vw);max-height:90vh;background:#fff;color:var(--ink)}
+.lightbox::backdrop{background:rgba(27,25,30,.72)}
+.lightbox img{max-height:72vh;width:auto;margin:auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px;font-size:14px}
+.close-dialog{border:1px solid var(--line-strong);border-radius:3px;background:#fff;padding:5px 12px;font-size:14px;color:var(--body)}
+.close-dialog:hover{border-color:var(--accent);color:var(--accent-deep)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:10px 20px;border-radius:4px;font-size:14px;z-index:50;transition:opacity .2s}
+.toast.show{opacity:1}
+
+/* ---------- responsive ---------- */
+@media(min-width:1400px){.layout{margin-top:65px}}
+
+@media(max-width:950px){
+  .layout{grid-template-columns:170px minmax(0,1fr);gap:35px;padding:0 24px;margin-top:38px}
+  .work{grid-template-columns:140px minmax(0,1fr);gap:18px}
+  .research-module .work{gap:18px}
+  .entry-date{float:none;text-align:left;margin:0 0 3px}
+  .entry h3{max-width:none}
+}
+
+@media(max-width:700px){
+  html{scroll-padding-top:18px}
+  .layout{display:block;margin:25px auto 10px;padding:0 22px;max-width:600px}
+  .profile{position:static;text-align:left;display:grid;grid-template-columns:95px minmax(0,1fr);gap:0 19px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:23px}
+  .profile-photo{grid-column:1;grid-row:1/6;width:95px;height:112px;margin:0;border-radius:4px}
+  .profile h1{font-size:25px}
+  .profile .chinese{font-size:15px;margin:3px 0 4px;line-height:1.4}
+  .profile-role{font-size:13px;line-height:1.6}
+  .profile-email{font-size:12px;margin:5px 0}
+  .profile-links{grid-column:2;justify-content:flex-start;font-size:13px;gap:17px}
+  .nav{grid-column:1/-1;flex-direction:row;gap:9px 18px;border:0;margin:14px 0 0;padding:0;flex-wrap:wrap}
+  .nav a{font-size:13px;padding:0}
+
+  .section-title,.section-head h2,.background h2{font-size:22px}
+  .about p{font-size:16px;line-height:1.65;margin-top:10px}
+  .opportunities{padding:19px 15px 13px}
+  .opportunities h2{left:10px}
+  .updates{margin:20px 0 23px;padding:13px 0}
+  .news-list li{font-size:13px;grid-template-columns:59px 1fr;gap:8px}
+  .news-list time{font-size:12px}
+  .news-item{grid-template-columns:15px minmax(0,1fr);gap:6px}
+  .news-emoji{font-size:14px}
+
+  .section-head{gap:10px}
+  .research > .section-head{margin-bottom:23px}
+  .module-heading{margin-bottom:18px}
+  .module-heading h3{font-size:18px;line-height:1.45;letter-spacing:-.2px;gap:14px}
+  .direction-title{gap:10px}
+  .direction-arrow{width:30px}
+  .module-heading p{font-size:13px;line-height:1.7;margin-top:8px;max-width:37em}
+  .research-module{margin-bottom:26px}
+  .research-module + .research-module{padding-top:4px}
+  .research-module .work{gap:6px 14px;margin-bottom:22px}
+
+  .work{grid-template-columns:105px minmax(0,1fr);gap:6px 14px;margin-bottom:21px;padding-bottom:20px}
+  .work-copy{display:contents}
+  .work-figure{grid-column:1;grid-row:1;margin:0}
+  .work :is(h3,h4){grid-column:2;grid-row:1;margin:0;font-size:14px;line-height:1.5;letter-spacing:0}
+  .work .authors,.work .work-tags,.work .work-description,.work .work-links,.work details{grid-column:1/-1;margin:0}
+  .work .authors{margin-top:4px;font-size:12px}
+  .work .work-description{margin-top:2px;font-size:13px;line-height:1.65}
+  .work .work-links{margin-top:3px;gap:4px 14px;font-size:13px}
+  .work details{margin-top:3px}
+
+  .work-figure button{padding:4px}
+  .work-figure img{max-height:115px}
+  .work-figure figcaption{font-size:10px;margin-top:5px}
+  .figure-pending{min-height:88px;padding:8px 5px}
+  .figure-pending strong{font-size:11px}
+  .figure-pending span{font-size:9px}
+  .status{font-size:9.5px}
+  .work-tags{font-size:12px}
+  .contribution{font-size:11px}
+  .publication-note{font-size:11px;margin-bottom:23px}
+  .contact h2{font-size:21px}
+  .lightbox{padding:13px}
+  .lightbox-bar{align-items:flex-start}
+}
+
+@media(max-width:380px){
+  .layout{padding:0 17px}
+  .profile{gap:0 14px;grid-template-columns:85px 1fr}
+  .profile-photo{width:85px;height:105px}
+  .profile h1{font-size:23px}
+  .nav{gap:18px}
+  .work{grid-template-columns:1fr;gap:10px}
+  .work-copy{display:block}
+  .work-figure{width:130px;grid-column:auto;grid-row:auto}
+  .work :is(h3,h4){grid-column:auto;grid-row:auto}
+  .work :is(h3,h4){font-size:15px}
+  .authors{font-size:13px}
+  .work-description{font-size:14px}
+}
+
+/* ---------- reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ---------- print ---------- */
+@media print{
+  html{border-top:0}
+  body{background:#fff}
+  .layout{display:block;margin:0;padding:0}
+  .profile{position:static;margin-bottom:20px}
+  .profile-photo{display:none}
+  .nav,.copy,.toast,.lightbox{display:none!important}
+  .publication-disclosure:not([open]) > .publication-list{display:block}
+  .publication-disclosure > summary{display:none}
+  .work{break-inside:avoid}
+  .entry{break-inside:avoid}
+}
+</style>
 </head>
-<body>
-  <!-- ============ Navbar ============ -->
-  <header class="nav">
-    <nav class="nav__inner">
-      <a class="nav__brand" href="#top">Xiaoyan Gu</a>
-      <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="layout">
+  <aside class="profile" aria-label="Personal information">
+    <img class="profile-photo" src="assets/avatar.jpg" width="150" height="160" alt="Xiaoyan Gu among flowering bougainvillea">
+    <h1>Xiaoyan Gu</h1>
+    <p class="chinese" lang="zh">古晓燕</p>
+    <p class="profile-role">M.Eng. Student<br>Zhejiang University · <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a></p>
+    <a class="profile-email" href="mailto:xiaoyanGu@zju.edu.cn">xiaoyanGu@zju.edu.cn</a>
 
-  <main id="top">
-    <!-- ============ Hero ============ -->
-    <section class="hero">
-      <div class="hero__avatar">
-        <img src="assets/avatar.jpg" alt="Xiaoyan Gu" onerror="this.style.opacity=0" />
-      </div>
-      <div class="hero__info">
-        <h1 class="hero__name">Xiaoyan Gu <span class="hero__name-en">古晓燕</span></h1>
-        <p class="hero__role">M.Eng. Student · LLMs &amp; Agents · Multimodal AI · Human-AI Interaction · Digital Humanities</p>
-        <p class="hero__affil">Data Science and Engineering, Zhejiang University</p>
-        <p class="hero__affil">State Key Laboratory of CAD&amp;CG (ZJUVAI) · Advised by Prof. Wei Chen &amp; Prof. Wei Zhang</p>
-        <p class="hero__intro">
-          I work on <strong>large language models</strong> and <strong>LLM-based agents</strong>,
-          spanning <strong>multimodal understanding</strong>, <strong>reasoning</strong>, and other
-          frontier directions in AI. Building on these, I am also deeply engaged in
-          <strong>human-AI interaction</strong> and <strong>digital humanities</strong> &mdash; exploring how
-          increasingly capable models and autonomous agents can understand, reason about, and
-          collaborate with people in the real world.
-        </p>
-      </div>
+    <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#research">Selected work</a><a href="#all-work">All work</a><a href="#background">Education</a><a href="#interests">Beyond research</a><a href="#contact">Contact</a></nav>
+  </aside>
+  <main id="main">
+    <!-- ABOUT: change the introductory copy here. -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title">About me</h2>
+      <p>Hi, I’m Xiaoyan! I am a master’s student in Data Science and Engineering at <a href="https://www.zju.edu.cn/english/" target="_blank" rel="noopener">Zhejiang University</a>, advised by <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Prof. Wei Chen</a> and <a href="https://silverbullete.com/" target="_blank" rel="noopener">Prof. Wei Zhang</a> at <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a>, <a href="https://www.cad.zju.edu.cn/english.html" target="_blank" rel="noopener">State Key Laboratory of CAD&amp;CG</a>. I also work closely with <a href="https://wangyifang.top/" target="_blank" rel="noopener">Prof. Yifang Wang</a>.</p>
+      <p>My research focuses on <strong>how humans and AI shape each other through sustained interaction</strong>, how these changes accumulate over time, and how they transform the collective capacities of human–AI systems to understand, reason, and act. I combine <strong>AI methods</strong> with <strong>HCI and visualization techniques</strong> to investigate these processes and design interactive systems that account for both how humans shape AI and how AI influences human thinking, learning, and behavior beyond the immediate task.</p>
+      <p>I have also worked on <strong>digital humanities</strong>, including artwork analysis and benchmarks for visual reasoning and cultural understanding.</p>
+      <p>Previously, I received my B.Eng. in Software Engineering from Chongqing University.</p>
+      <p class="research-line"><strong>Interests:</strong> Multimodal Large Language Model Post-Training · Agents · Human–AI Interaction · Visualization</p>
     </section>
+    <aside class="opportunities" aria-labelledby="opportunities-heading">
+      <h2 id="opportunities-heading">Seeking opportunities</h2>
+      <p>I am seeking <strong>research internship opportunities</strong> and <strong>PhD opportunities for Fall 2028</strong>, and welcome <strong>research collaborations</strong>. <a href="mailto:xiaoyanGu@zju.edu.cn">Contact me</a>.</p>
+    </aside>
+    <aside class="updates" aria-labelledby="news-heading"><h2 id="news-heading">News</h2><ul class="news-list">
+      <li><time datetime="2026-11">Nov 2026</time><span class="news-item"><span class="news-emoji" aria-hidden="true">🎉</span><span><em>ArtAnno</em> was presented as a poster and a talk at <em>UIST 2026</em>.</span></span></li>
+      <li><time datetime="2026-11">Nov 2026</time><span class="news-item"><span class="news-emoji" aria-hidden="true">🎉</span><span><em>DAVA</em> was presented at <em>IEEE VIS 2026</em>.</span></span></li>
+      <li><time datetime="2026-07">Jul 2026</time><span class="news-item"><span class="news-emoji" aria-hidden="true">🎤</span><span>Presented our research at <em>ChinaVis 2026</em>.</span></span></li>
+      <li><time datetime="2026-06">Jun 2026</time><span class="news-item"><span class="news-emoji" aria-hidden="true">🎉</span><span><em>ArtAnno</em> received conditional acceptance to <em>UIST 2026</em>.</span></span></li>
+    </ul></aside>
+    <!-- PUBLICATIONS:START -->
+<section id="research" class="research" aria-labelledby="research-heading">
+<div class="section-head"><h2 id="research-heading">Research</h2></div>
+<!-- Icons: Lucide, ISC license; see LUCIDE-LICENSE.txt. -->
+<figure class="research-model" aria-labelledby="research-model-caption">
+<div class="model-cycle">
+  <div class="model-entity model-human"><span class="model-symbol"><svg aria-hidden="true"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.35"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="8" r="5" />
+  <path d="M20 21a8 8 0 0 0-16 0" />
+</svg>
+</span><span class="model-name">Human</span><span class="model-qualities">Thinking<br>Learning · Agency</span></div>
+  <div class="model-exchange">
+    <span class="model-flow model-flow-forward">Intentions · Knowledge · Feedback</span>
+    <svg class="model-arrows" viewBox="0 0 260 100" aria-hidden="true"><path class="model-forward" d="M4 38 C65 10 195 10 256 38m-9-11 9 11-14-1"/><path class="model-return" d="M256 66 C195 94 65 94 4 66m9 11L4 66l14 1"/></svg>
+    <span class="model-center">Interaction<br><span>over time</span></span>
+    <span class="model-flow model-flow-return">Cognition · Learning · Agency</span>
+  </div>
+  <div class="model-entity model-ai"><span class="model-symbol"><svg aria-hidden="true"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.35"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</svg>
+</span><span class="model-name">AI</span><span class="model-qualities">Behavior<br>Skills · Capabilities</span></div>
+</div>
+<figcaption id="research-model-caption">Reciprocal influence through sustained interaction.</figcaption>
+</figure>
+<div class="publication-toolbar"><div class="research-tabs" role="tablist" aria-label="Research works">
+<button type="button" role="tab" id="selected-tab" aria-controls="selected-work" aria-selected="true" tabindex="0">Selected work <span>3</span></button>
+<button type="button" role="tab" id="all-tab" aria-controls="all-work" aria-selected="false" tabindex="-1">All work <span>9</span></button>
+</div><a class="scholar-link" href="https://scholar.google.com/citations?user=epqOK68AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></div>
+<div id="selected-work" class="research-panel selected-work" role="tabpanel" aria-labelledby="selected-tab" tabindex="0">
+<article class="work" aria-labelledby="selected-dava-title">
+  <figure class="work-figure"><button type="button" data-image="assets/dava-system.png" data-caption="DAVA · System &amp; workflow · Fig. 3" aria-label="Enlarge DAVA figure"><img src="assets/dava-system.png" alt="DAVA system with structural feature overview, pattern exploration, timeline, and interdisciplinary agent interpretation" loading="lazy"></button></figure>
+  <div class="work-copy"><h3 id="selected-dava-title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h3>
+    <div class="work-tags"><span class="venue">IEEE TVCG 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">Co-first author</span><span class="research-tag">Human → AI</span></div>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <strong>Xiaoyan Gu*</strong>, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <div class="work-links"><a href="https://doi.org/10.1109/TVCG.2026.3653892" target="_blank" rel="noopener">Paper</a></div>
+  </div>
+</article>
+<article class="work" aria-labelledby="selected-artanno-title">
+  <figure class="work-figure"><button type="button" data-image="assets/artanno.png" data-caption="ArtAnno · Annotation workspace" aria-label="Enlarge ArtAnno figure"><img src="assets/artanno.png" alt="ArtAnno interface showing artwork clusters, an annotation workspace, and agent assistance" loading="lazy"></button></figure>
+  <div class="work-copy"><h3 id="selected-artanno-title">ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentation</h3>
+    <div class="work-tags"><span class="venue">ACM UIST 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">First author</span><span class="research-tag">Human ↔ AI</span></div>
+    <p class="authors"><strong>Xiaoyan Gu*</strong>, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <div class="work-links"><a href="https://doi.org/10.1145/3830398.3830539" target="_blank" rel="noopener">Paper</a><a href="https://www.youtube.com/watch?v=zFEjKRprGMg" target="_blank" rel="noopener">Video</a></div>
+  </div>
+</article>
+<article class="work" aria-labelledby="selected-tcpsbench-title">
+  <figure class="work-figure"><button type="button" data-image="assets/tcps-construction.png" data-caption="TCPsBench · Benchmark construction · Fig. 4" aria-label="Enlarge TCPsBench figure"><img src="assets/tcps-construction.png" alt="TCPsBench curation pipeline: collection and filtering, expert annotation, question generation, and automatic and manual quality control" loading="lazy"></button></figure>
+  <div class="work-copy"><h3 id="selected-tcpsbench-title">TCPsBench: From Recognition to Interpretation and Reasoning in Traditional Chinese Painting Understanding</h3>
+    <div class="work-tags"><span class="venue">CVPR submission</span><span class="status status-under-review">Under review</span><span class="contribution">First author</span><span class="research-tag">Digital humanities</span></div>
+    <p class="authors"><strong>Xiaoyan Gu*</strong>, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
 
-    <!-- ============ About ============ -->
-    <section id="about" class="section">
-      <h2 class="section__title">About</h2>
-      <p class="prose">
-        I am a master's student in Data Science and Engineering at Zhejiang University
-        (Sept. 2025 &ndash; Jul. 2028 expected), advised by <strong>Prof. Wei Chen</strong> and
-        <strong>Prof. Wei Zhang</strong> at <strong>ZJUVAI</strong> within the State Key Laboratory of CAD&amp;CG,
-        where I also maintain a close and ongoing collaboration with <strong>Prof. Yifang Wang</strong>.
-        Before joining Zhejiang University, I received my B.Eng. degree in Software Engineering from Chongqing University.
-        My research centers on <strong>large language models</strong> and <strong>LLM-based agents</strong>,
-        with broad interests in <strong>multimodal understanding</strong>, <strong>reasoning</strong>, and
-        emerging frontier directions in AI &mdash; and how these advances translate into real-world,
-        human-centered applications such as human-AI interaction and digital humanities.
-      </p>
-      <p class="prose" style="margin-top:18px">
-        I am currently an Algorithm Intern at Alibaba's Qwen Business Unit, working on multimodal content understanding with LLMs.
-      </p>
-    </section>
+  </div>
+</article>
+<p class="publication-note">* Equal contribution &nbsp; · &nbsp; † Corresponding author(s) &nbsp; · &nbsp; ‡ My advisors</p>
+</div>
+<div id="all-work" class="research-panel all-work" role="tabpanel" aria-labelledby="all-tab" tabindex="0" hidden>
+<section class="research-module" data-direction="people-shaping-ai" aria-labelledby="all-module-people-shaping-ai">
+<header class="module-heading"><h3 id="all-module-people-shaping-ai"><span class="direction-title"><span>Human</span><span class="sr-only"> → </span><svg class="direction-arrow" viewBox="0 0 40 18" aria-hidden="true"><path d="M2 9h35M32 4l5 5-5 5"/></svg><span>AI</span></span></h3><p>How human intentions, knowledge, and feedback are expressed through interaction to inform the design of AI systems and guide changes in their behavior and capabilities.</p></header>
+<article class="work" aria-labelledby="all-dava-title">
+  <figure class="work-figure"><button type="button" data-image="assets/dava-system.png" data-caption="DAVA · System &amp; workflow · Fig. 3" aria-label="Enlarge DAVA figure"><img src="assets/dava-system.png" alt="DAVA system with structural feature overview, pattern exploration, timeline, and interdisciplinary agent interpretation" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-dava-title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h4>
+    <div class="work-tags"><span class="venue">IEEE TVCG 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">Co-first author</span></div>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <strong>Xiaoyan Gu*</strong>, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <div class="work-links"><a href="https://doi.org/10.1109/TVCG.2026.3653892" target="_blank" rel="noopener">Paper</a></div>
+  </div>
+</article>
+<article class="work" aria-labelledby="all-skilllens-title">
+  <figure class="work-figure"><button type="button" data-image="assets/skilllens-teaser.png" data-caption="SkillLens · System interface · Fig. 1" aria-label="Enlarge SkillLens figure"><img src="assets/skilllens-teaser.png" alt="SkillLens interface linking performance, error summaries, case evidence, and human-reviewed skill refinement" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-skilllens-title">SkillLens: An Interactive Human-LLM System for Diagnosing and Refining Agent Skills</h4>
+    <div class="work-tags"><span class="venue">Ongoing research</span><span class="status status-in-preparation">In preparation</span></div>
 
-    <!-- ============ News ============ -->
-    <section id="news" class="section">
-      <h2 class="section__title">News</h2>
-      <ul class="news">
-        <li><span class="news__date">2026.07</span> Presented our paper at <em>ChinaVis 2026</em> (Jul 19&ndash;22).</li>
-        <li><span class="news__date">2026.06</span> <em>ArtAnno</em> conditionally accepted to <em>UIST 2026</em>.</li>
-        <li><span class="news__date">2026.06</span> Started my internship at Alibaba's <em>Qwen Business Unit</em>.</li>
-      </ul>
-    </section>
 
-    <!-- ============ Education ============ -->
-    <section id="education" class="section">
-      <h2 class="section__title">Education</h2>
-      <div class="timeline">
-        <div class="timeline__item">
-          <div class="timeline__date">2025.09 — 2028.07</div>
-          <div class="timeline__body">
-            <h3>M.Eng. in Data Science and Engineering</h3>
-            <p class="timeline__org">Zhejiang University · State Key Laboratory of CAD&amp;CG (ZJUVAI)</p>
-            <p class="timeline__desc">Advised by Prof. Wei Chen &amp; Prof. Wei Zhang; ongoing collaboration with Prof. Yifang Wang. Research on digital humanities, HCI and multimodal LLMs.</p>
-          </div>
-        </div>
-        <div class="timeline__item">
-          <div class="timeline__date">2021.09 — 2025.07</div>
-          <div class="timeline__body">
-            <h3>B.Eng. in Software Engineering</h3>
-            <p class="timeline__org">Chongqing University</p>
-            <p class="timeline__desc">Worked on visualization research, advised by Prof. Haibo Hu.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  </div>
+</article>
+</section>
+<section class="research-module" data-direction="ai-shaping-people" aria-labelledby="all-module-ai-shaping-people">
+<header class="module-heading"><h3 id="all-module-ai-shaping-people"><span class="direction-title"><span>AI</span><span class="sr-only"> → </span><svg class="direction-arrow" viewBox="0 0 40 18" aria-hidden="true"><path d="M2 9h35M32 4l5 5-5 5"/></svg><span>Human</span></span></h3><p>How interactions with AI shape human cognition, behavior, and agency, both within and beyond immediate tasks.</p></header>
+<article class="work" aria-labelledby="all-human-agent-deliberation-title">
+  <figure class="work-figure"><button type="button" data-image="assets/had-teaser.png" data-caption="Human-Agent Deliberation · Human participation space · Fig. 1" aria-label="Enlarge Human-Agent Deliberation figure"><img src="assets/had-teaser.png" alt="Four human participation modes: observer, intervener, contributor, and director" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-human-agent-deliberation-title">From Observing to Directing: Exploring Human Participation in Human-Agent Deliberation for Opinion Evolution</h4>
+    <div class="work-tags"><span class="venue">CHI submission</span><span class="status status-under-review">Under review</span></div>
 
-    <!-- ============ Research / Publications ============ -->
-    <section id="research" class="section">
-      <h2 class="section__title">Research</h2>
-      <ul class="pub">
-        <li class="pub__item">
-          <div class="pub__meta">
-            <div class="pub__badges">
-              <span class="badge badge--accent">ACM UIST 2026</span>
-              <span class="badge badge--pending">Conditionally Accepted</span>
-              <span class="badge">Co-First Author</span>
-            </div>
-            <h3 class="pub__title">ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentation</h3>
-            <p class="pub__authors"><strong>Xiaoyan Gu</strong><sup>*</sup>, Yifang Wang<sup>*</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, Wei Zhang<sup>&dagger;</sup>, Wei Chen<sup>&dagger;</sup></p>
-            <p class="pub__venue">ACM UIST 2026 · Jul 2026</p>
-            <p class="pub__desc">ArtAnno proposes a <strong>bidirectional human-AI augmentation</strong> framework, realized as a multi-agent&ndash;driven annotation system. It proactively provides multimodal assistance while continuously learning from annotators&rsquo; interactions &mdash; distilling expert knowledge into reusable skills without adding user burden &mdash; so the system keeps self-evolving to better serve the downstream annotation workflow.</p>
-          </div>
-        </li>
-        <li class="pub__item">
-          <div class="pub__meta">
-            <div class="pub__badges">
-              <span class="badge badge--accent">IEEE TVCG</span>
-              <span class="badge badge--ok">Accepted</span>
-              <span class="badge">Co-First Author</span>
-            </div>
-            <h3 class="pub__title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h3>
-            <p class="pub__authors">Wei Zhang<sup>*</sup>, <strong>Xiaoyan Gu</strong><sup>*</sup>, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, Yifang Wang<sup>&dagger;</sup>, Wei Chen<sup>&dagger;</sup></p>
-            <p class="pub__venue">IEEE TVCG · Mar 2026</p>
-            <p class="pub__links"><a href="https://ieeexplore.ieee.org/document/11354149" target="_blank" rel="noopener">Paper ↗</a></p>
-            <p class="pub__desc">A visual analytics approach that decodes artworks by combining interpretable feature modeling with multi-agent collaboration, helping users explore and reason about visual style and meaning.</p>
-          </div>
-        </li>
-        <li class="pub__item">
-          <div class="pub__meta">
-            <div class="pub__badges">
-              <span class="badge badge--accent">Benchmark</span>
-              <span class="badge badge--pending">Under Review</span>
-              <span class="badge">Co-First Author</span>
-            </div>
-            <h3 class="pub__title">TCPsBench: A Benchmark for Evaluating Interpretation Ability in Traditional Chinese Painting</h3>
-            <p class="pub__authors"><strong>Xiaoyan Gu</strong><sup>*</sup>, Yifang Wang<sup>*</sup>, Wenqing Zheng, Yixia Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, Wei Zhang<sup>&dagger;</sup>, Wei Chen<sup>&dagger;</sup></p>
-            <p class="pub__venue">Under Review</p>
-            <p class="pub__desc">A benchmark for evaluating how well models interpret Traditional Chinese Painting, probing multimodal understanding and cultural reasoning beyond generic image captioning.</p>
-          </div>
-        </li>
-      </ul>
-      <p class="pub__note"><sup>*</sup> Equal contribution (co-first authors) &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Co-corresponding authors</p>
-    </section>
 
-    <!-- ============ Experience ============ -->
-    <section id="experience" class="section">
-      <h2 class="section__title">Experience</h2>
-      <div class="timeline">
-        <div class="timeline__item">
-          <div class="timeline__date">2026.06 — Present</div>
-          <div class="timeline__body">
-            <h3>Algorithm Intern</h3>
-            <p class="timeline__org">Alibaba · Qwen Business Unit</p>
-            <p class="timeline__desc">Multimodal content understanding with LLMs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  </div>
+</article>
+</section>
+<section class="research-module" data-direction="mutual-augmentation" aria-labelledby="all-module-mutual-augmentation">
+<header class="module-heading"><h3 id="all-module-mutual-augmentation"><span class="direction-title"><span>Human</span><span class="sr-only"> ↔ </span><svg class="direction-arrow" viewBox="0 0 40 18" aria-hidden="true"><path d="M2 9h35M32 4l5 5-5 5"/><path d="M7 4 2 9l5 5"/></svg><span>AI</span></span></h3><p>How people and AI influence one another within a shared interaction episode or over a sustained period of engagement.</p></header>
+<article class="work" aria-labelledby="all-artanno-title">
+  <figure class="work-figure"><button type="button" data-image="assets/artanno.png" data-caption="ArtAnno · Annotation workspace" aria-label="Enlarge ArtAnno figure"><img src="assets/artanno.png" alt="ArtAnno interface showing artwork clusters, an annotation workspace, and agent assistance" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-artanno-title">ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentation</h4>
+    <div class="work-tags"><span class="venue">ACM UIST 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">First author</span></div>
+    <p class="authors"><strong>Xiaoyan Gu*</strong>, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <div class="work-links"><a href="https://doi.org/10.1145/3830398.3830539" target="_blank" rel="noopener">Paper</a><a href="https://www.youtube.com/watch?v=zFEjKRprGMg" target="_blank" rel="noopener">Video</a></div>
+  </div>
+</article>
+</section>
+<section class="research-module" data-direction="digital-humanities" aria-labelledby="all-module-digital-humanities">
+<header class="module-heading"><h3 id="all-module-digital-humanities"><span class="direction-title">Digital Humanities and Cultural Reasoning</span></h3><p>How can AI support evidence-based interpretation of art and culture?</p></header>
+<article class="work" aria-labelledby="all-tcpsbench-title">
+  <figure class="work-figure"><button type="button" data-image="assets/tcps-construction.png" data-caption="TCPsBench · Benchmark construction · Fig. 4" aria-label="Enlarge TCPsBench figure"><img src="assets/tcps-construction.png" alt="TCPsBench curation pipeline: collection and filtering, expert annotation, question generation, and automatic and manual quality control" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-tcpsbench-title">TCPsBench: From Recognition to Interpretation and Reasoning in Traditional Chinese Painting Understanding</h4>
+    <div class="work-tags"><span class="venue">CVPR submission</span><span class="status status-under-review">Under review</span><span class="contribution">First author</span></div>
+    <p class="authors"><strong>Xiaoyan Gu*</strong>, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
 
-    <!-- ============ Contact ============ -->
-    <section id="contact" class="section">
-      <h2 class="section__title">Contact</h2>
-      <p class="prose">
-        Feel free to reach out to discuss research, collaborations and opportunities —
-        email <a href="mailto:xiaoyanGu@zju.edu.cn">xiaoyanGu@zju.edu.cn</a>.
-      </p>
+  </div>
+</article>
+<article class="work" aria-labelledby="all-ccu-bench-title">
+  <figure class="work-figure"><button type="button" data-image="assets/ccu-construction.png" data-caption="CCU-Bench · Benchmark construction · Fig. 2" aria-label="Enlarge CCU-Bench figure"><img src="assets/ccu-construction.png" alt="CCU-Bench construction pipeline: data collection and filtering, question-answer generation, and quality control" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-ccu-bench-title">CCU-Bench: A Systematic Benchmark for Cross-Cultural Understanding in Large Language Models</h4>
+    <div class="work-tags"><span class="venue">ENGINEERING ITEE 2026</span><span class="status status-accepted">Accepted</span></div>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Ting Yin, Jia Chen, Wenjie Ning, <strong>Xiaoyan Gu</strong>, Kai Liu, Hengnian Qi, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <div class="work-links"><a href="https://doi.org/10.1631/ENG.ITEE.2026.0083" target="_blank" rel="noopener">Paper</a></div>
+  </div>
+</article>
+<article class="work" aria-labelledby="all-artflow-title">
+  <figure class="work-figure"><button type="button" data-image="assets/artflow-method.png" data-caption="ArtFlow · Agent workflow · Fig. 2" aria-label="Enlarge ArtFlow figure"><img src="assets/artflow-method.png" alt="ArtFlow architecture with perception, reasoning, multi-agent validation, and reflection layers" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-artflow-title">ArtFlow: An Agentic Workflow for Retrieval-Grounded Traditional Chinese Painting Analysis</h4>
+    <div class="work-tags"><span class="venue">CVPR submission</span><span class="status status-under-review">Under review</span></div>
+
+
+  </div>
+</article>
+</section>
+<section class="research-module" data-direction="foundational-research" aria-labelledby="all-module-foundational-research">
+<header class="module-heading"><h3 id="all-module-foundational-research"><span class="direction-title">Foundations of Reliable Visual Reasoning</span></h3><p>What visual evidence makes a model’s interpretation trustworthy?</p></header>
+<article class="work" aria-labelledby="all-rightevidence-title">
+  <figure class="work-figure"><button type="button" data-image="assets/rightevidence-method.png" data-caption="RightEvidence · Visual claim verification · Fig. 2" aria-label="Enlarge RightEvidence figure"><img src="assets/rightevidence-method.png" alt="CAL-EDV and CAL-Verifier routes comparing image evidence views and claim-region support" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-rightevidence-title">Which Claim Does the Region Support? Verifying MLLM Candidates with Multiple Evidence Views</h4>
+    <div class="work-tags"><span class="venue">AAAI submission</span><span class="status status-under-review">Under review</span></div>
+
+
+  </div>
+</article>
+</section>
+<section class="research-module" data-direction="early-work" aria-labelledby="all-module-early-work">
+<header class="module-heading"><h3 id="all-module-early-work"><span class="direction-title">Early Work in Software Security</span></h3><p>Learning structural representations for code vulnerability detection.</p></header>
+<article class="work" aria-labelledby="all-dfept-title">
+  <figure class="work-figure"><button type="button" data-image="assets/dfept-overview.png" data-caption="DFEPT · Method overview · Fig. 1" aria-label="Enlarge DFEPT figure"><img src="assets/dfept-overview.png" alt="DFEPT architecture combining data-flow graph embedding and code sequence embedding for vulnerability classification" loading="lazy"></button></figure>
+  <div class="work-copy"><h4 id="all-dfept-title">DFEPT: Data Flow Embedding for Enhancing Pre-Trained Model Based Vulnerability Detection</h4>
+    <div class="work-tags"><span class="venue">ACM Internetware 2024</span><span class="status status-accepted">Accepted</span></div>
+    <p class="authors">Zhonghao Jiang, Weifeng Sun, <strong>Xiaoyan Gu</strong>, Jiaxin Wu, Tao Wen, <a href="https://faculty.cqu.edu.cn/HaiboHu/en/index.htm" target="_blank" rel="noopener">Haibo Hu</a>, Meng Yan†.</p>
+    <div class="work-links"><a href="https://doi.org/10.1145/3671016.3671388" target="_blank" rel="noopener">Paper</a><a href="https://github.com/GCVulnerability/DFEPT" target="_blank" rel="noopener">Code</a></div>
+  </div>
+</article>
+</section>
+<p class="publication-note">* Equal contribution &nbsp; · &nbsp; † Corresponding author(s) &nbsp; · &nbsp; ‡ My advisors</p>
+</div>
+</section>
+<!-- PUBLICATIONS:END -->
+    <section id="background" class="background" aria-label="Education"><div class="background-grid">
+      <div><h2>Education</h2><article class="entry"><p class="entry-date">SEP 2025 — JUL 2028 · EXPECTED</p><h3>Zhejiang University</h3><p class="entry-role">M.Eng. in Data Science and Engineering</p><p><a href="https://www.cad.zju.edu.cn/english.html" target="_blank" rel="noopener">State Key Laboratory of CAD&amp;CG</a> · <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a><br>Advised by <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Prof. Wei Chen</a> and <a href="https://silverbullete.com/" target="_blank" rel="noopener">Prof. Wei Zhang</a>, with ongoing collaboration with <a href="https://wangyifang.top/" target="_blank" rel="noopener">Prof. Yifang Wang</a>.</p></article><article class="entry"><p class="entry-date">SEP 2021 — JUL 2025</p><h3>Chongqing University</h3><p class="entry-role">B.Eng. in Software Engineering</p><p>Visualization research advised by <a href="https://faculty.cqu.edu.cn/HaiboHu/en/index.htm" target="_blank" rel="noopener">Prof. Haibo Hu</a>.</p></article></div>
+    </div></section>
+    <section id="interests" class="personal-interests" aria-labelledby="interests-heading">
+      <h2 id="interests-heading" class="section-title">Beyond research</h2>
+      <p>Outside of research, I enjoy traveling, reading classical Chinese poetry, playing the piano, and appreciating architecture.</p>
     </section>
+    <section id="contact" class="contact" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Contact</h2><p>Feel free to reach out to discuss research, collaborations, or opportunities.</p></div><div class="contact-actions"><a class="email-link" href="mailto:xiaoyanGu@zju.edu.cn">xiaoyanGu@zju.edu.cn</a><button class="copy" type="button" id="copy-email">Copy email address</button></div></section>
+    <footer class="footer"><span>© 2026 Xiaoyan Gu · 古晓燕</span><a href="#top">Back to top</a></footer>
   </main>
-
+</div>
+  <dialog class="lightbox" id="image-dialog" aria-labelledby="image-caption"><div class="lightbox-bar"><p id="image-caption"></p><button class="close-dialog" type="button">Close</button></div><img id="dialog-image" alt=""></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
-    // Scroll reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.section, .hero').forEach((el) => { el.classList.add('reveal'); io.observe(el); });
+    const researchTabs = [...document.querySelectorAll('.research-tabs [role="tab"]')];
+    function selectResearchTab(tab, {focus = false, updateHash = false} = {}) {
+      researchTabs.forEach(item => {
+        const active = item === tab;
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+      });
+      if (focus) tab.focus();
+      if (updateHash) history.replaceState(null, '', tab.id === 'all-tab' ? '#all-work' : '#research');
+      document.querySelectorAll('.nav a[href="#research"], .nav a[href="#all-work"]').forEach(link => {
+        const active = link.hash === (tab.id === 'all-tab' ? '#all-work' : '#research');
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    researchTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectResearchTab(tab, {updateHash:true}));
+      tab.addEventListener('keydown', event => {
+        let next;
+        if (event.key === 'ArrowRight') next = (index + 1) % researchTabs.length;
+        if (event.key === 'ArrowLeft') next = (index + researchTabs.length - 1) % researchTabs.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = researchTabs.length - 1;
+        if (next === undefined) return;
+        event.preventDefault();
+        selectResearchTab(researchTabs[next], {focus:true, updateHash:true});
+      });
+    });
+    document.querySelectorAll('.nav a[href="#research"], .nav a[href="#all-work"]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        selectResearchTab(document.getElementById(link.hash === '#all-work' ? 'all-tab' : 'selected-tab'), {updateHash:true});
+        document.getElementById('research').scrollIntoView({behavior:'smooth'});
+      });
+    });
+    function researchTabFromHash() {
+      if (location.hash === '#all-work' || location.hash.startsWith('#all-')) selectResearchTab(document.getElementById('all-tab'));
+      else if (location.hash === '#research' || location.hash === '#selected-work') selectResearchTab(document.getElementById('selected-tab'));
+    }
+    researchTabFromHash();
+    window.addEventListener('hashchange', researchTabFromHash);
+    const dialog = document.getElementById('image-dialog');
+    const enlarged = document.getElementById('dialog-image');
+    document.querySelectorAll('[data-image]').forEach(button => {
+      button.addEventListener('click', () => {
+        enlarged.src = button.dataset.image;
+        enlarged.alt = button.querySelector('img').alt;
+        document.getElementById('image-caption').textContent = button.dataset.caption;
+        dialog.showModal();
+      });
+    });
+    dialog.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if(event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if(event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    });
+    let toastTimer;
+    function notify(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+    document.getElementById('copy-email').addEventListener('click', async () => {
+      const email = 'xiaoyanGu@zju.edu.cn';
+      try {
+        if(!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(email);
+        notify('Email address copied');
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.querySelector('.email-link'));
+        const selection = window.getSelection();
+        selection.removeAllRanges(); selection.addRange(range);
+        notify('Email selected — press ⌘C or Ctrl+C to copy');
+      }
+    });
+    if('IntersectionObserver' in window) {
+      const nav = [...document.querySelectorAll('.nav a[href^="#"]')];
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          nav.forEach(link => {
+            if(link.hash === (entry.target.id === 'research' ? (document.getElementById('all-tab').getAttribute('aria-selected') === 'true' ? '#all-work' : '#research') : '#' + entry.target.id)) link.setAttribute('aria-current','location');
+            else link.removeAttribute('aria-current');
+          });
+        });
+      }, {rootMargin:'-15% 0px -60% 0px',threshold:0});
+      nav.forEach(link => { const section = document.querySelector(link.hash); if(section && link.hash !== '#all-work') observer.observe(section); });
+    }
   </script>
 </body>
 </html>

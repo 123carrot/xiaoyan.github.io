@@ -8,3 +8,11 @@ IMG_0048.HEIC.JPG
 # Unused downloaded illustrations (banner feature not enabled)
 assets/scroll_guoxi.jpg
 assets/scroll_lijie.jpg
+
+# Local manuscripts, archives, and previews
+论文宝宝们/
+Xiaoyan-Gu.html
+*-preview.jpg
+*-source.zip
+before-*.html
+__pycache__/
