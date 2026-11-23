@@ -113,8 +113,8 @@ model = f'''<!-- Icons: Lucide, ISC license; see LUCIDE-LICENSE.txt. -->
 </figure>'''
 body = f'''<section id="research" class="research" aria-labelledby="research-heading">
 <div class="section-head"><h2 id="research-heading">Research</h2></div>
-{direction_overview("Research directions")}
 {model}
+{direction_overview("Research directions")}
 <div class="publication-toolbar"><div class="research-tabs" role="tablist" aria-label="Research works">
 <button type="button" role="tab" id="selected-tab" aria-controls="selected-work" aria-selected="true" tabindex="0">Selected work <span>{len(selected_papers)}</span></button>
 <button type="button" role="tab" id="all-tab" aria-controls="all-work" aria-selected="false" tabindex="-1">All work <span>{len(PAPERS)}</span></button>
