@@ -120,7 +120,6 @@ body = f'''<section id="research" class="research" aria-labelledby="research-hea
 <button type="button" role="tab" id="all-tab" aria-controls="all-work" aria-selected="false" tabindex="-1">All work <span>{len(PAPERS)}</span></button>
 </div><a class="scholar-link" href="https://scholar.google.com/citations?user=epqOK68AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></div>
 <div id="selected-work" class="research-panel selected-work" role="tabpanel" aria-labelledby="selected-tab" tabindex="0">
-{direction_overview("Selected work research directions")}
 {selected}
 {note}
 </div>
