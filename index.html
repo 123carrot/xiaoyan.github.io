@@ -255,6 +255,16 @@ details[open] summary{margin-bottom:4px}
 }
 @media print{.research-model,.publication-toolbar{display:none}.research-panel[hidden]{display:block!important}.selected-work{display:none!important}}
 
+/* Research directions are visible in the overview and selected-paper panel. */
+.direction-overview{margin:0 0 23px;display:grid;gap:11px}
+.direction-entry{display:grid;grid-template-columns:108px minmax(0,1fr);gap:15px;align-items:baseline}
+.direction-entry dt{font:400 17px/1.55 var(--serif);color:var(--ink);white-space:nowrap}
+.direction-entry dd{margin:0;font:400 14px/1.65 var(--sans);color:var(--body)}
+.selected-work>.direction-overview{margin:0 0 25px;padding-bottom:21px;border-bottom:1px solid var(--line)}
+@media(max-width:700px){.direction-entry{grid-template-columns:90px minmax(0,1fr);gap:12px}.direction-entry dt{font-size:16px}.direction-entry dd{font-size:13px}.direction-overview{gap:12px;margin-bottom:22px}}
+
+@media(max-width:420px){.direction-entry{grid-template-columns:1fr;gap:3px}}
+
 /* ---------- engineering and post-training projects ---------- */
 .projects{margin:6px 0 32px;padding-top:23px;border-top:1px solid var(--line)}
 .projects-intro{font-size:15px;line-height:1.7;color:var(--body);margin:10px 0 19px}
@@ -458,6 +468,7 @@ details[open] summary{margin-bottom:4px}
     <!-- PUBLICATIONS:START -->
 <section id="research" class="research" aria-labelledby="research-heading">
 <div class="section-head"><h2 id="research-heading">Research</h2></div>
+<dl class="direction-overview" aria-label="Research directions"><div class="direction-entry"><dt>Human → AI</dt><dd>How human intentions, knowledge, and feedback are expressed through interaction to inform the design of AI systems and guide changes in their behavior and capabilities.</dd></div><div class="direction-entry"><dt>AI → Human</dt><dd>How interactions with AI shape human cognition, behavior, and agency, both within and beyond immediate tasks.</dd></div><div class="direction-entry"><dt>Human ↔ AI</dt><dd>How people and AI influence one another within a shared interaction episode or over a sustained period of engagement.</dd></div></dl>
 <!-- Icons: Lucide, ISC license; see LUCIDE-LICENSE.txt. -->
 <figure class="research-model" aria-labelledby="research-model-caption">
 <div class="model-cycle">
@@ -509,6 +520,7 @@ details[open] summary{margin-bottom:4px}
 <button type="button" role="tab" id="all-tab" aria-controls="all-work" aria-selected="false" tabindex="-1">All work <span>9</span></button>
 </div><a class="scholar-link" href="https://scholar.google.com/citations?user=epqOK68AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></div>
 <div id="selected-work" class="research-panel selected-work" role="tabpanel" aria-labelledby="selected-tab" tabindex="0">
+<dl class="direction-overview" aria-label="Selected work research directions"><div class="direction-entry"><dt>Human → AI</dt><dd>How human intentions, knowledge, and feedback are expressed through interaction to inform the design of AI systems and guide changes in their behavior and capabilities.</dd></div><div class="direction-entry"><dt>AI → Human</dt><dd>How interactions with AI shape human cognition, behavior, and agency, both within and beyond immediate tasks.</dd></div><div class="direction-entry"><dt>Human ↔ AI</dt><dd>How people and AI influence one another within a shared interaction episode or over a sustained period of engagement.</dd></div></dl>
 <article class="work" aria-labelledby="selected-dava-title">
   <figure class="work-figure"><button type="button" data-image="assets/dava-system.png" data-caption="DAVA · System &amp; workflow · Fig. 3" aria-label="Enlarge DAVA figure"><img src="assets/dava-system.png" alt="DAVA system with structural feature overview, pattern exploration, timeline, and interdisciplinary agent interpretation" loading="lazy"></button></figure>
   <div class="work-copy"><h3 id="selected-dava-title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h3>

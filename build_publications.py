@@ -87,6 +87,10 @@ def modules(scope, selected_only=False):
 </section>''')
     return '\n'.join(parts)
 
+def direction_overview(label):
+    rows = ''.join(f'<div class="direction-entry"><dt>{escape(category)}</dt><dd>{escape(description)}</dd></div>' for _, category, description in RESEARCH_MODULES[:3])
+    return f'<dl class="direction-overview" aria-label="{escape(label, quote=True)}">{rows}</dl>'
+
 SELECTED_IDS = ['dava', 'artanno', 'tcpsbench']
 selected_papers = sorted((p for p in PAPERS if p['selected']), key=lambda p: SELECTED_IDS.index(p['id']) if p['id'] in SELECTED_IDS else len(SELECTED_IDS))
 selected = '\n'.join(work(p, 'selected', show_category=True) for p in selected_papers)
@@ -109,12 +113,14 @@ model = f'''<!-- Icons: Lucide, ISC license; see LUCIDE-LICENSE.txt. -->
 </figure>'''
 body = f'''<section id="research" class="research" aria-labelledby="research-heading">
 <div class="section-head"><h2 id="research-heading">Research</h2></div>
+{direction_overview("Research directions")}
 {model}
 <div class="publication-toolbar"><div class="research-tabs" role="tablist" aria-label="Research works">
 <button type="button" role="tab" id="selected-tab" aria-controls="selected-work" aria-selected="true" tabindex="0">Selected work <span>{len(selected_papers)}</span></button>
 <button type="button" role="tab" id="all-tab" aria-controls="all-work" aria-selected="false" tabindex="-1">All work <span>{len(PAPERS)}</span></button>
 </div><a class="scholar-link" href="https://scholar.google.com/citations?user=epqOK68AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></div>
 <div id="selected-work" class="research-panel selected-work" role="tabpanel" aria-labelledby="selected-tab" tabindex="0">
+{direction_overview("Selected work research directions")}
 {selected}
 {note}
 </div>
