@@ -96,14 +96,14 @@ ai_icon = (ROOT / 'assets/bot.svg').read_text().replace('stroke-width="2"', 'str
 model = f'''<!-- Icons: Lucide, ISC license; see LUCIDE-LICENSE.txt. -->
 <figure class="research-model" aria-labelledby="research-model-caption">
 <div class="model-cycle">
-  <div class="model-entity model-human"><span class="model-symbol">{human_icon}</span><span class="model-name">Human</span><span class="model-qualities">Thinking<br>Learning · Agency</span></div>
+  <div class="model-entity model-human" role="img" aria-label="Human"><span class="model-symbol">{human_icon}</span></div>
   <div class="model-exchange">
     <span class="model-flow model-flow-forward">Intentions · Knowledge · Feedback</span>
-    <svg class="model-arrows" viewBox="0 0 260 100" aria-hidden="true"><path class="model-forward" d="M4 38 C65 10 195 10 256 38m-9-11 9 11-14-1"/><path class="model-return" d="M256 66 C195 94 65 94 4 66m9 11L4 66l14 1"/></svg>
-    <span class="model-center">Interaction<br><span>over time</span></span>
-    <span class="model-flow model-flow-return">Cognition · Learning · Agency</span>
+    <svg class="model-arrows" viewBox="0 0 260 100" aria-hidden="true"><path class="model-forward" d="M4 38 C72 10 188 10 256 38m-9-11 9 11-14-1"/><path class="model-return" d="M256 66 C188 94 72 94 4 66m9 11L4 66l14 1"/></svg>
+    <span class="model-center">Interaction</span>
+    <span class="model-flow model-flow-return">Assistance · Inspiration · Influence</span>
   </div>
-  <div class="model-entity model-ai"><span class="model-symbol">{ai_icon}</span><span class="model-name">AI</span><span class="model-qualities">Behavior<br>Skills · Capabilities</span></div>
+  <div class="model-entity model-ai" role="img" aria-label="AI agent"><span class="model-symbol">{ai_icon}</span></div>
 </div>
 <figcaption id="research-model-caption">Reciprocal influence through sustained interaction.</figcaption>
 </figure>'''
