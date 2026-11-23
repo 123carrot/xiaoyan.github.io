@@ -23,7 +23,7 @@ def author_html(name):
         text = f'<a href="{escape(url, quote=True)}" target="_blank" rel="noopener">{text}</a>'
     if name.rstrip('*†‡') in ADVISORS:
         text += '<sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>'
-    return '<strong>' + text + '</strong>' if 'Xiaoyan Gu' in name else text
+    return text
 
 def work(p, scope, heading_level=3, show_category=False):
     key = scope + '-' + p['id']

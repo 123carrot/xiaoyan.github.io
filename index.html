@@ -282,6 +282,16 @@ details[open] summary{margin-bottom:4px}
 .entry-role{font-size:14px;color:var(--accent-deep);margin-top:2px}
 .entry p:last-child{font-size:14px;line-height:1.6;color:var(--body);margin-top:4px}
 
+/* Body copy is kept at regular weight; headings retain their hierarchy. */
+.about p,.about p strong,.about strong,.research-line strong,.opportunities strong,.authors strong,.projects-intro strong,.project-description strong{font-weight:400}
+.status,.venue,.research-tag{font-weight:400}
+.awards{margin:4px 0 29px}
+.awards h2{margin-bottom:14px}
+.award-entry{display:flex;justify-content:space-between;align-items:baseline;gap:7px 20px;flex-wrap:wrap}
+.award-title{font-size:15px;line-height:1.65;color:var(--ink);font-weight:400}
+.award-year{font-size:13px;line-height:1.65;color:var(--muted);font-weight:400}
+@media(max-width:700px){.award-title{font-size:14px}.award-year{font-size:12px}.awards{margin-bottom:25px}}
+
 /* ---------- personal interests ---------- */
 .personal-interests{margin:3px 0 24px;padding-top:5px}
 .personal-interests p{font-size:14px;line-height:1.7;color:var(--body);margin-top:10px}
@@ -423,21 +433,21 @@ details[open] summary{margin-bottom:4px}
     <p class="profile-role">M.Eng. Student<br>Zhejiang University · <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a></p>
     <a class="profile-email" href="mailto:xiaoyanGu@zju.edu.cn">xiaoyanGu@zju.edu.cn</a>
 
-    <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#research">Selected work</a><a href="#all-work">All work</a><a href="#projects">Projects</a><a href="#background">Education</a><a href="#interests">Beyond research</a><a href="#contact">Contact</a></nav>
+    <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#research">Selected work</a><a href="#all-work">All work</a><a href="#projects">Projects</a><a href="#background">Education</a><a href="#awards">Awards</a><a href="#interests">Beyond research</a><a href="#contact">Contact</a></nav>
   </aside>
   <main id="main">
     <!-- ABOUT: change the introductory copy here. -->
     <section id="about" class="about" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-title">About me</h2>
       <p>Hi, I’m Xiaoyan! I am a master’s student in Data Science and Engineering at <a href="https://www.zju.edu.cn/english/" target="_blank" rel="noopener">Zhejiang University</a>, advised by <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Prof. Wei Chen</a> and <a href="https://silverbullete.com/" target="_blank" rel="noopener">Prof. Wei Zhang</a> at <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a>, <a href="https://www.cad.zju.edu.cn/english.html" target="_blank" rel="noopener">State Key Laboratory of CAD&amp;CG</a>. I also work closely with <a href="https://wangyifang.top/" target="_blank" rel="noopener">Prof. Yifang Wang</a>.</p>
-      <p>My research focuses on <strong>how humans and AI shape each other through sustained interaction</strong>, how these changes accumulate over time, and how they transform the collective capacities of human–AI systems to understand, reason, and act. I combine <strong>AI methods</strong> with <strong>HCI and visualization techniques</strong> to investigate these processes and design interactive systems that account for both how humans shape AI and how AI influences human thinking, learning, and behavior beyond the immediate task.</p>
-      <p>I have also worked on <strong>digital humanities</strong>, including artwork analysis and benchmarks for visual reasoning and cultural understanding.</p>
+      <p>My research focuses on how humans and AI shape each other through sustained interaction, how these changes accumulate over time, and how they transform the collective capacities of human–AI systems to understand, reason, and act. I combine AI methods with HCI and visualization techniques to investigate these processes and design interactive systems that account for both how humans shape AI and how AI influences human thinking, learning, and behavior beyond the immediate task.</p>
+      <p>I have also worked on digital humanities, including artwork analysis and benchmarks for visual reasoning and cultural understanding.</p>
       <p>Previously, I received my B.Eng. in Software Engineering from Chongqing University.</p>
-      <p class="research-line"><strong>Interests:</strong> Multimodal Large Language Model Post-Training · Agents · Human–AI Interaction · Visualization</p>
+      <p class="research-line">Interests: Multimodal Large Language Model Post-Training · Agents · Human–AI Interaction · Visualization</p>
     </section>
     <aside class="opportunities" aria-labelledby="opportunities-heading">
       <h2 id="opportunities-heading">Seeking opportunities</h2>
-      <p>I am seeking <strong>research internship opportunities</strong> and <strong>PhD opportunities for Fall 2028</strong>, and welcome <strong>research collaborations</strong>. <a href="mailto:xiaoyanGu@zju.edu.cn">Contact me</a>.</p>
+      <p>I am seeking research internship opportunities and PhD opportunities for Fall 2028, and welcome research collaborations. <a href="mailto:xiaoyanGu@zju.edu.cn">Contact me</a>.</p>
     </aside>
     <aside class="updates" aria-labelledby="news-heading"><h2 id="news-heading">News</h2><ul class="news-list">
       <li><time datetime="2026-11">Nov 2026</time><span class="news-item"><span class="news-emoji" aria-hidden="true">🎉</span><span><em>ArtAnno</em> was presented as a poster and a talk at <em>UIST 2026</em>.</span></span></li>
@@ -503,7 +513,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/dava-system.png" data-caption="DAVA · System &amp; workflow · Fig. 3" aria-label="Enlarge DAVA figure"><img src="assets/dava-system.png" alt="DAVA system with structural feature overview, pattern exploration, timeline, and interdisciplinary agent interpretation" loading="lazy"></button></figure>
   <div class="work-copy"><h3 id="selected-dava-title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h3>
     <div class="work-tags"><span class="venue">IEEE TVCG 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">Co-first author</span><span class="research-tag">Human → AI</span></div>
-    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <strong>Xiaoyan Gu*</strong>, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Xiaoyan Gu*, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
     <div class="work-links"><a href="https://doi.org/10.1109/TVCG.2026.3653892" target="_blank" rel="noopener">Paper</a></div>
   </div>
 </article>
@@ -511,7 +521,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/artanno.png" data-caption="ArtAnno · Annotation workspace" aria-label="Enlarge ArtAnno figure"><img src="assets/artanno.png" alt="ArtAnno interface showing artwork clusters, an annotation workspace, and agent assistance" loading="lazy"></button></figure>
   <div class="work-copy"><h3 id="selected-artanno-title">ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentation</h3>
     <div class="work-tags"><span class="venue">ACM UIST 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">First author</span><span class="research-tag">Human ↔ AI</span></div>
-    <p class="authors"><strong>Xiaoyan Gu*</strong>, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors">Xiaoyan Gu*, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
     <div class="work-links"><a href="https://doi.org/10.1145/3830398.3830539" target="_blank" rel="noopener">Paper</a><a href="https://www.youtube.com/watch?v=zFEjKRprGMg" target="_blank" rel="noopener">Video</a></div>
   </div>
 </article>
@@ -519,7 +529,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/tcps-construction.png" data-caption="TCPsBench · Benchmark construction · Fig. 4" aria-label="Enlarge TCPsBench figure"><img src="assets/tcps-construction.png" alt="TCPsBench curation pipeline: collection and filtering, expert annotation, question generation, and automatic and manual quality control" loading="lazy"></button></figure>
   <div class="work-copy"><h3 id="selected-tcpsbench-title">TCPsBench: From Recognition to Interpretation and Reasoning in Traditional Chinese Painting Understanding</h3>
     <div class="work-tags"><span class="venue">CVPR submission</span><span class="status status-under-review">Under review</span><span class="contribution">First author</span><span class="research-tag">Digital humanities</span></div>
-    <p class="authors"><strong>Xiaoyan Gu*</strong>, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors">Xiaoyan Gu*, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
 
   </div>
 </article>
@@ -532,7 +542,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/dava-system.png" data-caption="DAVA · System &amp; workflow · Fig. 3" aria-label="Enlarge DAVA figure"><img src="assets/dava-system.png" alt="DAVA system with structural feature overview, pattern exploration, timeline, and interdisciplinary agent interpretation" loading="lazy"></button></figure>
   <div class="work-copy"><h4 id="all-dava-title">DAVA: Decoding Art With Visual Analytics Through Feature Modeling and Multi-Agent Collaboration</h4>
     <div class="work-tags"><span class="venue">IEEE TVCG 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">Co-first author</span></div>
-    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <strong>Xiaoyan Gu*</strong>, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Xiaoyan Gu*, Hengru Liu, Peiyi Jiang, Xianfeng Peng, Zhenqian Xu, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
     <div class="work-links"><a href="https://doi.org/10.1109/TVCG.2026.3653892" target="_blank" rel="noopener">Paper</a></div>
   </div>
 </article>
@@ -562,7 +572,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/artanno.png" data-caption="ArtAnno · Annotation workspace" aria-label="Enlarge ArtAnno figure"><img src="assets/artanno.png" alt="ArtAnno interface showing artwork clusters, an annotation workspace, and agent assistance" loading="lazy"></button></figure>
   <div class="work-copy"><h4 id="all-artanno-title">ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentation</h4>
     <div class="work-tags"><span class="venue">ACM UIST 2026</span><span class="status status-accepted">Accepted</span><span class="contribution">First author</span></div>
-    <p class="authors"><strong>Xiaoyan Gu*</strong>, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors">Xiaoyan Gu*, <a href="https://wangyifang.top/" target="_blank" rel="noopener">Yifang Wang*</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Wenqing Zheng, Haozhong Liu, Yixia Zheng, Peiyi Jiang, Wenjie Ning, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
     <div class="work-links"><a href="https://doi.org/10.1145/3830398.3830539" target="_blank" rel="noopener">Paper</a><a href="https://www.youtube.com/watch?v=zFEjKRprGMg" target="_blank" rel="noopener">Video</a></div>
   </div>
 </article>
@@ -573,7 +583,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/tcps-construction.png" data-caption="TCPsBench · Benchmark construction · Fig. 4" aria-label="Enlarge TCPsBench figure"><img src="assets/tcps-construction.png" alt="TCPsBench curation pipeline: collection and filtering, expert annotation, question generation, and automatic and manual quality control" loading="lazy"></button></figure>
   <div class="work-copy"><h4 id="all-tcpsbench-title">TCPsBench: From Recognition to Interpretation and Reasoning in Traditional Chinese Painting Understanding</h4>
     <div class="work-tags"><span class="venue">CVPR submission</span><span class="status status-under-review">Under review</span><span class="contribution">First author</span></div>
-    <p class="authors"><strong>Xiaoyan Gu*</strong>, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors">Xiaoyan Gu*, Yixia Zheng*, Wenqing Zheng, Haozhong Liu, Kai Liu, Peiyi Jiang, Tianqi Wang, Junjie Zhu, Linyi Jiang, <a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
 
   </div>
 </article>
@@ -581,7 +591,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/ccu-construction.png" data-caption="CCU-Bench · Benchmark construction · Fig. 2" aria-label="Enlarge CCU-Bench figure"><img src="assets/ccu-construction.png" alt="CCU-Bench construction pipeline: data collection and filtering, question-answer generation, and quality control" loading="lazy"></button></figure>
   <div class="work-copy"><h4 id="all-ccu-bench-title">CCU-Bench: A Systematic Benchmark for Cross-Cultural Understanding in Large Language Models</h4>
     <div class="work-tags"><span class="venue">ENGINEERING ITEE 2026</span><span class="status status-accepted">Accepted</span></div>
-    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Ting Yin, Jia Chen, Wenjie Ning, <strong>Xiaoyan Gu</strong>, Kai Liu, Hengnian Qi, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
+    <p class="authors"><a href="https://silverbullete.com/" target="_blank" rel="noopener">Wei Zhang</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>, Ting Yin, Jia Chen, Wenjie Ning, Xiaoyan Gu, Kai Liu, Hengnian Qi, <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Wei Chen†</a><sup class="advisor-mark" title="My advisor" aria-label="My advisor">‡</sup>.</p>
     <div class="work-links"><a href="https://doi.org/10.1631/ENG.ITEE.2026.0083" target="_blank" rel="noopener">Paper</a></div>
   </div>
 </article>
@@ -611,7 +621,7 @@ details[open] summary{margin-bottom:4px}
   <figure class="work-figure"><button type="button" data-image="assets/dfept-overview.png" data-caption="DFEPT · Method overview · Fig. 1" aria-label="Enlarge DFEPT figure"><img src="assets/dfept-overview.png" alt="DFEPT architecture combining data-flow graph embedding and code sequence embedding for vulnerability classification" loading="lazy"></button></figure>
   <div class="work-copy"><h4 id="all-dfept-title">DFEPT: Data Flow Embedding for Enhancing Pre-Trained Model Based Vulnerability Detection</h4>
     <div class="work-tags"><span class="venue">ACM Internetware 2024</span><span class="status status-accepted">Accepted</span></div>
-    <p class="authors">Zhonghao Jiang, Weifeng Sun, <strong>Xiaoyan Gu</strong>, Jiaxin Wu, Tao Wen, <a href="https://faculty.cqu.edu.cn/HaiboHu/en/index.htm" target="_blank" rel="noopener">Haibo Hu</a>, Meng Yan†.</p>
+    <p class="authors">Zhonghao Jiang, Weifeng Sun, Xiaoyan Gu, Jiaxin Wu, Tao Wen, <a href="https://faculty.cqu.edu.cn/HaiboHu/en/index.htm" target="_blank" rel="noopener">Haibo Hu</a>, Meng Yan†.</p>
     <div class="work-links"><a href="https://doi.org/10.1145/3671016.3671388" target="_blank" rel="noopener">Paper</a><a href="https://github.com/GCVulnerability/DFEPT" target="_blank" rel="noopener">Code</a></div>
   </div>
 </article>
@@ -623,17 +633,17 @@ details[open] summary{margin-bottom:4px}
     <!-- PROJECTS:START -->
     <section id="projects" class="projects" aria-labelledby="projects-heading">
       <h2 id="projects-heading" class="section-title">Projects</h2>
-      <p class="projects-intro">Selected engineering work in <strong>multimodal model post-training</strong> and iterative improvement.</p>
+      <p class="projects-intro">Selected engineering work in multimodal model post-training and iterative improvement.</p>
       <article class="project-entry" aria-labelledby="chart-post-training-title">
-        <h3 id="chart-post-training-title">Chart-to-Text Post-Training</h3>
+        <h3 id="chart-post-training-title">Chart-to-Insight Post-Training</h3>
         <p class="project-focus">Multimodal post-training · Reward design · GRPO</p>
-        <p class="project-description">I develop <strong>rubric-guided GRPO</strong> pipelines for chart-to-text generation, translating expert criteria into reward signals and curating training and evaluation data for faithful, informative chart descriptions.</p>
-        <div class="project-flow" aria-label="Chart-to-text post-training workflow"><span>Training data</span><span aria-hidden="true">→</span><span>Rubric-based rewards</span><span aria-hidden="true">→</span><span>GRPO</span><span aria-hidden="true">→</span><span>Evaluation</span></div>
+        <p class="project-description">I develop rubric-guided GRPO pipelines for chart-to-insight generation, translating expert criteria into reward signals and curating training and evaluation data to produce insights grounded in chart evidence.</p>
+        <div class="project-flow" aria-label="Chart-to-insight post-training workflow"><span>Training data</span><span aria-hidden="true">→</span><span>Rubric-based rewards</span><span aria-hidden="true">→</span><span>GRPO</span><span aria-hidden="true">→</span><span>Evaluation</span></div>
       </article>
       <article class="project-entry" aria-labelledby="rsi-architecture-title">
         <h3 id="rsi-architecture-title">Recursive Self-Improvement Architecture</h3>
         <p class="project-focus">RSI · System architecture · Training–evaluation loop</p>
-        <p class="project-description">I design and build an <strong>RSI architecture</strong> connecting feedback collection, evaluation, <strong>post-training</strong>, and version iteration into a model-improvement loop.</p>
+        <p class="project-description">I design and build an RSI architecture connecting feedback collection, evaluation, post-training, and version iteration into a model-improvement loop.</p>
         <div class="project-flow" aria-label="Recursive self-improvement workflow"><span>Feedback</span><span aria-hidden="true">→</span><span>Evaluation</span><span aria-hidden="true">→</span><span>Post-training</span><span aria-hidden="true">→</span><span>Iteration</span></div>
       </article>
     </section>
@@ -641,6 +651,10 @@ details[open] summary{margin-bottom:4px}
     <section id="background" class="background" aria-label="Education"><div class="background-grid">
       <div><h2>Education</h2><article class="entry"><p class="entry-date">SEP 2025 — JUL 2028 · EXPECTED</p><h3>Zhejiang University</h3><p class="entry-role">M.Eng. in Data Science and Engineering</p><p><a href="https://www.cad.zju.edu.cn/english.html" target="_blank" rel="noopener">State Key Laboratory of CAD&amp;CG</a> · <a href="https://zjuvai.cn/" target="_blank" rel="noopener">ZJUVAI</a><br>Advised by <a href="https://www.cad.zju.edu.cn/home/chenwei/" target="_blank" rel="noopener">Prof. Wei Chen</a> and <a href="https://silverbullete.com/" target="_blank" rel="noopener">Prof. Wei Zhang</a>, with ongoing collaboration with <a href="https://wangyifang.top/" target="_blank" rel="noopener">Prof. Yifang Wang</a>.</p></article><article class="entry"><p class="entry-date">SEP 2021 — JUL 2025</p><h3>Chongqing University</h3><p class="entry-role">B.Eng. in Software Engineering</p><p>Visualization research advised by <a href="https://faculty.cqu.edu.cn/HaiboHu/en/index.htm" target="_blank" rel="noopener">Prof. Haibo Hu</a>.</p></article></div>
     </div></section>
+    <section id="awards" class="awards" aria-labelledby="awards-heading">
+      <h2 id="awards-heading" class="section-title">Honors &amp; Awards</h2>
+      <div class="award-entry"><p class="award-title">Graduate Scholarship</p><p class="award-year">Academic year 2025–2026</p></div>
+    </section>
     <section id="interests" class="personal-interests" aria-labelledby="interests-heading">
       <h2 id="interests-heading" class="section-title">Beyond research</h2>
       <p>Outside of research, I enjoy traveling, reading classical Chinese poetry, playing the piano, and appreciating architecture.</p>
